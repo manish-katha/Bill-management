@@ -184,7 +184,7 @@ export const View = () => {
       const imgWidth = pdf.internal.pageSize.getWidth();
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-      pdf.save("download.pdf");
+      pdf.save(`${billData[0].Phone_No}.pdf`);
     });
   };
 

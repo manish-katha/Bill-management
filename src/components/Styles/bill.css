@@ -86,3 +86,30 @@
     display: inline-block;
       margin:5px;
   }
+
+
+
+  @media (max-width: 1256px) {
+    .bill-container{
+     width:90vw ;
+     height:15vw ;
+    }
+  }
+  @media (max-width: 984px) {
+    .bill-container{
+     width:90vw ;
+     height:30vw ;
+    }
+  }
+  @media (max-width: 832px) {
+    .bill-container{
+     width:90vw ;
+     height:35vw ;
+    }
+  }
+  @media (max-width: 748px) {
+    .bill-container{
+     width:90vw ;
+     height:55vw ;
+    }
+  }

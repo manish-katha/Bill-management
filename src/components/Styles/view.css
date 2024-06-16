@@ -160,3 +160,46 @@ body {
 .empty{
   height: 15px;
 }  
+
+
+@media (max-width: 1213px) {
+  .container {
+    padding: 10px;
+    width: 90vw;
+  }
+}
+@media (max-width: 935px) {
+  .container {
+    width: 95vw;
+  }
+}
+
+@media (max-width: 870px) {
+  .container {
+    width: 95vw;
+  }
+  .items{
+    padding: 5px;
+width: 90%;
+  }
+}
+@media (max-width: 860px) {
+  .container {
+    width: 98vw;
+  }
+  .items table{
+    padding: 2px;
+width: 60vw;
+font-size: 14px;
+  }
+}
+@media (max-width: 760px) {
+  .container {
+    width: 98vw;
+  }
+  .items table{
+    padding: 2px;
+width: 60vw;
+font-size: 12px;
+  }
+}
