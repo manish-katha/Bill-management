@@ -1,0 +1,88 @@
+/* bill.css */
+
+.FORM {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Equal width columns */
+    gap: 10px; /* Spacing between columns */
+    width: 60%; /* Adjust width as needed */
+    margin: 20px auto; /* Center the form */
+    border: 2px solid #ccc; /* Thicker border */
+    border-radius: 20px;
+    background-color: #f5f5f5; /* Lighter background */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+   
+  }
+  
+  .FORM label {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .FORM input {
+    padding: 8px;
+    margin-top: 5px; /* Adjust spacing between input fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .FORM button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Adjust spacing between button and input fields */
+  }
+  
+  .FORM button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Container for the bill */
+.bill-container {
+    width: 70%; /* Increase width */
+   
+    height: 20vh; /* Allow height to adjust based on content */
+    margin: 5px auto; /* Center the container with more margin */
+    padding: 5px; /* Increase padding */
+    border: 2px solid #ccc; /* Thicker border */
+    border-radius: 20px;
+    background-color: #f5f5f5; /* Lighter background */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+    font-size: 30px;/* Enhance shadow */
+    display: inline-block; /* Ensure elements stay on the same line */
+}
+
+/* Input label styles */
+.bill-container label {
+    font-size: 20px; /* Increase font size */
+    display: inline-block; /* Keep labels on the same line */
+    margin-bottom: 20px; /* Adjust spacing between labels */
+}
+
+/* Input field styles */
+.bill-container input {
+    padding: 15px;
+    border: 2px solid #ddd; /* Lighter border */
+    border-radius: 10px;
+    margin-bottom: 20px; /* Adjust spacing between inputs */
+    font-size: 18px; /* Increase font size */
+    display: inline-block; /* Keep inputs on the same line */
+}
+
+/* Button styles */
+
+
+  .add{
+    padding: 15px 30px; /* Increase padding */
+    background-color: #d1db41;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add smooth transition */
+    font-size: 18px; /* Increase font size */
+    display: inline-block;
+      margin:5px;
+  }

@@ -1,0 +1,169 @@
+.LoginStyle{
+    display : flex;
+    height: 100vh;
+    width : 100vw;
+ }
+ 
+ .leftStyle {
+    height : 100vh;
+    width : 40vw;
+    background-color: rgb(98, 98, 240);
+ }
+ .rightStyle {
+   height : 100vh;
+   width : 60vw;
+   background-color: rgba(136, 61, 227, 0.84);
+   display: flex;
+}
+
+.Login_box{
+   width: 45%;
+   height:70%;
+   border: 2px solid white;
+   border-radius: 20px;
+   margin:auto;
+   background-color: rgb(254, 254, 252) ;
+   box-shadow: 5px 5px 5px 5px rgb(9, 1, 15);
+   align-items: flex-start;
+   display: flex;
+   flex-direction: column;
+   padding-left: 20px;
+}
+
+.Login_box h1{
+      color: rgb(0, 0, 0);
+      text-shadow: 2px 2px 4px #323232;
+      margin: 15px;
+      font-size: 55px;
+      padding: 2px;
+    
+}
+
+.Login_box input{
+   height:8%;
+   width: 75%;
+   margin: 22px;
+   border: 2px solid black;
+   border-radius: 15px;
+   background-color: rgb(242, 244, 244);
+   font-size: 20px;
+   padding-left: 5px;
+}
+.Login_box button , .sign_popup button{
+   height:10%;
+   width: 75%;
+   margin: 22px;
+   border: 2px solid black;
+   border-radius: 15px;
+   font-size: 25px;
+   background-color: rgba(0, 55, 254, 0.185);
+   cursor:grab;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.Login_box a {
+   margin-left: 25px;
+}
+
+.leftStyle{
+   font-size: 65px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   color: white;
+}
+.leftStyle button{
+   height:10%;
+   width: 65%;
+   margin: 22px;
+   border: 2px solid black;
+   border-radius: 15px;
+   font-size: 45px;
+   background-color: rgba(211, 213, 218, 0.929);
+   cursor:grab;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: rgb(0, 0, 0);
+}
+
+.sign_popup{
+    align-items: flex-start;
+   display: flex;
+   flex-direction: column;
+}
+ 
+.sign_popup h1{
+   color: rgb(0, 0, 0);
+      text-shadow: 2px 2px 4px #323232;
+      margin: 10px;
+      font-size: 45px;
+      padding: 2px;  
+}
+
+.sign_popup input{
+   height:30px;
+   width: 75%;
+   margin: 18px;
+   border: 2px solid black;
+   border-radius: 15px;
+   background-color: rgb(242, 244, 244);
+   font-size: 25px;
+   padding-left: 5px;
+}
+
+ .sign_popup button{
+   height: 40px;
+   width: 75%;
+
+   margin: 15px;
+   border: 2px solid black;
+   border-radius: 18px;
+   font-size: 25px;
+   background-color: rgba(0, 55, 254, 0.185);
+   cursor:grab;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.ForUser{
+   font-size: 35px;
+   margin: 18px;
+}
+
+.Forinput{
+   height:30px;
+   width: 75%;
+   margin: 18px;
+   border: 2px solid black;
+   border-radius: 15px;
+   background-color: rgb(242, 244, 244);
+   font-size: 25px;
+   padding-left: 5px;
+}
+
+.Forbutton{
+   height: 40px;
+   width: 75%;
+
+   margin: 15px;
+   border: 2px solid black;
+   border-radius: 18px;
+   font-size: 25px;
+   background-color: rgba(0, 55, 254, 0.185);
+   cursor:grab;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+
+.Forshow{
+   font-size: 35px;
+   margin: 18px;
+   margin-top: 45px;
+}

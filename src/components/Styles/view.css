@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 70vw;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .header img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .header h2 {
+    font-size: 18px;
+    margin-top: 0;
+  }
+  
+  .bill-to {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .bill-to table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .bill-to th, .bill-to td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .bill-to th {
+    background-color: #f0f0f0;
+  }
+  
+  .items {
+    padding: 20px;
+  }
+  
+  .items table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .items th, .items td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .items th {
+    background-color: #f0f0f0;
+  }
+  
+  .total {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .total table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .total th, .total td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .total th {
+    background-color: #f0f0f0;
+  }
+  
+  .footer {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .footer table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .footer th, .footer td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .footer th {
+    background-color: #f0f0f0;
+  }
+
+  .phone_inp{
+    padding: 5px;
+    border: 2px solid #ddd; /* Lighter border */
+    border-radius: 10px;
+    margin-bottom: 20px; /* Adjust spacing between inputs */
+    font-size: 18px; /* Increase font size */
+    display: inline-block;
+  }
+  .phone_button{
+    /* padding: 10px 20px; */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 19px;
+    width: 95px;
+    height: 30px;
+    margin: 2px;
+    /* margin-top: 10px; */
+  }
+
+  .pdf_button{
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 20px;
+    
+  }
+
+  .header {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Distribute items along the main axis (horizontally) */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .header h1,
+  .header h2 {
+    margin: 0; /* Remove default margin */
+  }
+  
+  .header img {
+    margin-right: 10px; /* Adjust margin between elements if needed */
+  }
+.empty{
+  height: 15px;
+}  

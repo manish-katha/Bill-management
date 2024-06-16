@@ -1,0 +1,27 @@
+.Nav{
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-around;
+    width: 100%;
+    height: 6vh;
+    background-color: #0d5fa7;
+    color: white;
+    font-size: small;
+    text-align: left;
+    align-items: center;
+}
+
+.left{
+    display: flex;
+    height: 6vh;
+    background-color: #0d5fa7;
+    color: white;
+    font-size: small;
+    align-items: center;
+}
+
+.left a{
+    color: white;
+    font-size: 20px;
+    margin-right: 22px;
+}
