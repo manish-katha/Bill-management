@@ -5,7 +5,6 @@ import { Nav } from "./nav";
 import "./Styles/bill.css";
 import { Link, useNavigate } from "react-router-dom";
 
-
 export const Bill = () => {
   const [name, setName] = useState("");
   const [phone, setPhno] = useState(0);
@@ -17,32 +16,28 @@ export const Bill = () => {
   const [quantity, setQty] = useState(0);
   const [hsncode, setHsn] = useState("");
   const [grossweight, setGrossWeight] = useState(0);
-  const [netweight, setNetWeight] = useState(0);
+  const [netweight, setNetWeight] = useState(0); // We will calculate netweight based on grossweight and wastage
   const [purity, setPurity] = useState("");
   const [rate, setRate] = useState(0);
-  const [Labour, setLabour] = useState(0);
+  const [wastage, setWastage] = useState(0); // New wastage field
   const [Hallmark, setHall] = useState(0);
   const [paymode, setPay] = useState("");
   const [State, setState] = useState("");
 
   const [formCount, setFormCount] = useState(1); // State to track the number of forms
 
-  const Navigate=useNavigate();
-
+  const Navigate = useNavigate();
 
   const ViewBill = () => {
-    console.log("Phone number:", phone); // Log the phone number to check if it's captured correctly
+    console.log("Phone number:", phone);
     Navigate(`/View/${phone}`);
   };
-  
-  
 
-  
   const handleSubmit = (event) => {
-
-    const ammount=parseFloat(netweight) * (parseFloat(rate) + parseFloat(Labour)) + parseFloat(Hallmark);
-
     event.preventDefault();
+
+    const ammount =
+      parseFloat(netweight) * parseFloat(rate) + parseFloat(Hallmark);
 
     const val = doc(db, "bill_project_123", phone);
     const collect = collection(val, phone);
@@ -60,13 +55,21 @@ export const Bill = () => {
       Item_netweight: netweight,
       Item_purity: purity,
       Item_rate: rate,
-      Item_Labour: Labour,
+      Item_wastage: wastage,
       Item_hallmark: Hallmark,
       total_amount: ammount,
-      Payment:paymode,
+      Payment: paymode,
       State: State,
     });
+
     alert("data submitted");
+  };
+
+  const calculateNetWeight = (grossWeight) => {
+    const wastage = parseFloat(grossWeight) * 0.13;
+    setWastage(wastage);
+    setNetWeight(parseFloat(grossWeight) + wastage);
+    setGrossWeight(parseFloat(grossWeight));
   };
 
   const billform = () => {
@@ -107,17 +110,30 @@ export const Bill = () => {
           <label>
             Gross Weight(gm):
             <input
-              type="float"
+              type="number"
+              step="0.01"
               placeholder="Weight"
-              onChange={(event) => setGrossWeight(event.target.value)}
+              onChange={(event) =>
+                calculateNetWeight(event.target.value)
+              }
             />
           </label>
           <label>
             Net Weight(gm):
             <input
-              type="float"
-              placeholder="Weight"
-              onChange={(event) => setNetWeight(event.target.value)}
+              type="number"
+              step="0.01"
+              value={netweight}
+              readOnly
+            />
+          </label>
+          <label>
+            Wastage (13% of Gross Weight):
+            <input
+              type="number"
+              step="0.01"
+              value={wastage}
+              readOnly
             />
           </label>
           <label>
@@ -136,14 +152,15 @@ export const Bill = () => {
               onChange={(event) => setRate(event.target.value)}
             />
           </label>
-          <label>
+          {/* Commenting out Labour and Labour/gm fields */}
+          {/* <label>
             Labour/gm:
             <input
               type="number"
               placeholder="Labour charge"
               onChange={(event) => setLabour(event.target.value)}
             />
-          </label>
+          </label> */}
           <label>
             Hall Mark Charges:
             <input
@@ -170,7 +187,7 @@ export const Bill = () => {
   const renderForms = () => {
     const forms = [];
     for (let i = 0; i < formCount; i++) {
-      forms.push(billform()); // Call billform function and add its result to forms array
+      forms.push(billform());
     }
     return forms;
   };
@@ -224,10 +241,9 @@ export const Bill = () => {
       <button className="add" onClick={() => setFormCount(formCount + 1)}>
         Add more
       </button>
-      <button className="add" onClick={ViewBill }>
-       View Bill
+      <button className="add" onClick={ViewBill}>
+        View Bill
       </button>
-      
     </>
   );
 };
