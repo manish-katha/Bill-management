@@ -240,12 +240,12 @@ export const View = () => {
                   <th>Qty</th>
                   <th>HSN NO</th>
                   <th>Gross Wt. (gm)</th>
-                  <th>Wastage (%)</th>
-                  <th>Net Wt. (gm)</th>
+                  <th>Wastage (13%)</th>
+                  {/* <th>Net Wt. (gm)</th> */}
                   <th>Purity</th>
                   <th>Rate</th>
-                  <th>Labour/gm</th>
-                  <th>Labour</th>
+                  {/* <th>Labour/gm</th> */}
+                  {/* <th>Labour</th> */}
                   <th>Hallmark Charges</th>
                   <th>Total Amount</th>
                 </tr>
@@ -259,11 +259,11 @@ export const View = () => {
                     <td>{item.HSN_CODE}</td>
                     <td>{item.Item_grossweight}</td>
                     <td>{item.Item_wastage}</td>
-                    <td>{item.Item_netweight}</td>
+                    {/* <td>{item.Item_netweight}</td> */}
                     <td>{item.Item_purity}</td>
                     <td>{formatRupees(item?.Item_rate || 0)}</td>
-<td>{formatRupees(item?.Item_Labour || 0)}</td>
-<td>{formatRupees((item?.Item_Labour || 0) * (item?.Item_netweight || 0))}</td>
+{/* <td>{formatRupees(item?.Item_Labour || 0)}</td> */}
+{/* <td>{formatRupees((item?.Item_Labour || 0) * (item?.Item_netweight || 0))}</td> */}
 <td>{formatRupees(item?.Item_hallmark || 0)}</td>
 <td>{formatRupees(item?.total_amount || 0)}</td>
                   </tr>
