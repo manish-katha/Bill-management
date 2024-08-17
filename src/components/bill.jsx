@@ -23,6 +23,7 @@ export const Bill = () => {
   const [Hallmark, setHall] = useState(0);
   const [paymode, setPay] = useState("");
   const [State, setState] = useState("");
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
   const [formCount, setFormCount] = useState(1); // State to track the number of forms
 
@@ -60,6 +61,7 @@ export const Bill = () => {
       total_amount: ammount,
       Payment: paymode,
       State: State,
+      Date: date,
     });
 
     alert("data submitted");
@@ -113,28 +115,16 @@ export const Bill = () => {
               type="number"
               step="0.01"
               placeholder="Weight"
-              onChange={(event) =>
-                calculateNetWeight(event.target.value)
-              }
+              onChange={(event) => calculateNetWeight(event.target.value)}
             />
           </label>
           <label>
             Net Weight(gm):
-            <input
-              type="number"
-              step="0.01"
-              value={netweight}
-              readOnly
-            />
+            <input type="number" step="0.01" value={netweight} readOnly />
           </label>
           <label>
             Wastage (13% of Gross Weight):
-            <input
-              type="number"
-              step="0.01"
-              value={wastage}
-              readOnly
-            />
+            <input type="number" step="0.01" value={wastage} readOnly />
           </label>
           <label>
             Purity:
@@ -234,6 +224,14 @@ export const Bill = () => {
             type="string"
             placeholder="state"
             onChange={(event) => setState(event.target.value)}
+          />
+        </label>
+        <label>
+          Date:
+          <input
+            type="date"
+            value={date}
+            onChange={(event) => setDate(event.target.value)}
           />
         </label>
       </div>

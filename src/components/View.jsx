@@ -6,6 +6,8 @@ import "./Styles/view.css";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import rsImage from "./assets/rs.jpeg";
+import { toWords } from "number-to-words";
+import numWords from "num-words";
 
 export const View = () => {
   const [ph, setPh] = useState();
@@ -23,78 +25,8 @@ export const View = () => {
 
   // Function to convert number to words
   const amountInWords = (amount) => {
-    const digits = [
-      "",
-      "One",
-      "Two",
-      "Three",
-      "Four",
-      "Five",
-      "Six",
-      "Seven",
-      "Eight",
-      "Nine",
-      "Ten",
-      "Eleven",
-      "Twelve",
-      "Thirteen",
-      "Fourteen",
-      "Fifteen",
-      "Sixteen",
-      "Seventeen",
-      "Eighteen",
-      "Nineteen",
-    ];
-
-    const tens = [
-      "",
-      "Ten",
-      "Twenty",
-      "Thirty",
-      "Forty",
-      "Fifty",
-      "Sixty",
-      "Seventy",
-      "Eighty",
-      "Ninety",
-    ];
-
-    let result = "";
-
-    if (amount > 9999999) {
-      const crores = Math.floor(amount / 10000000);
-      amount %= 10000000;
-      result += digits[crores] + " Crore ";
-    }
-
-    if (amount > 99999) {
-      const lakhs = Math.floor(amount / 100000);
-      amount %= 100000;
-      result += digits[lakhs] + " Lakh ";
-    }
-
-    if (amount > 999) {
-      const thousands = Math.floor(amount / 1000);
-      amount %= 1000;
-      result += digits[thousands] + " Thousand ";
-    }
-
-    if (amount > 99) {
-      const hundreds = Math.floor(amount / 100);
-      amount %= 100;
-      result += digits[hundreds] + " Hundred ";
-    }
-
-    if (amount > 19) {
-      result += tens[Math.floor(amount / 10)];
-      amount %= 10;
-    }
-
-    result += digits[amount];
-
-    result += " Rupees Only";
-
-    return result;
+    const words = numWords(amount); // Automatically converts to Indian format (Lakh, Crore, etc.)
+    return `${words.charAt(0).toUpperCase() + words.slice(1)} Rupees Only`;
   };
 
   let { phone } = useParams();
@@ -191,7 +123,11 @@ export const View = () => {
       <div ref={componentRef} className="container">
         <div className="header">
           <div>
-            <h1>R S JEWELLERS</h1>
+            <div>
+              <h1>
+                R S JEWELLERS <h2>(Sarafa Bazar Baghpat)</h2>
+              </h1>
+            </div>
             <img src={rsImage} alt="RS Jewelers" />
           </div>
           <h2>GSTIN. 09ARQPV2257D1ZC</h2>
@@ -215,7 +151,7 @@ export const View = () => {
                 </tr>
                 <tr>
                   <th>Date:</th>
-                  <td>{date}</td>
+                  <td>{billData[0]?.Date}</td>
                   <th>Payment mode</th>
                   <td>{billData[0]?.Payment}</td>
                 </tr>
@@ -239,8 +175,8 @@ export const View = () => {
                   <th>Item Name</th>
                   <th>Qty</th>
                   <th>HSN NO</th>
-                  <th>Gross Wt. (gm)</th>
-                  <th>Wastage (13%)</th>
+                  <th>Net Wt. (gm)</th>
+                  <th>Wastage</th>
                   {/* <th>Net Wt. (gm)</th> */}
                   <th>Purity</th>
                   <th>Rate</th>
@@ -258,14 +194,14 @@ export const View = () => {
                     <td>{item.Item_Quantity}</td>
                     <td>{item.HSN_CODE}</td>
                     <td>{item.Item_grossweight}</td>
-                    <td>{item.Item_wastage}</td>
+                    <td>13%</td>
                     {/* <td>{item.Item_netweight}</td> */}
                     <td>{item.Item_purity}</td>
                     <td>{formatRupees(item?.Item_rate || 0)}</td>
-{/* <td>{formatRupees(item?.Item_Labour || 0)}</td> */}
-{/* <td>{formatRupees((item?.Item_Labour || 0) * (item?.Item_netweight || 0))}</td> */}
-<td>{formatRupees(item?.Item_hallmark || 0)}</td>
-<td>{formatRupees(item?.total_amount || 0)}</td>
+                    {/* <td>{formatRupees(item?.Item_Labour || 0)}</td> */}
+                    {/* <td>{formatRupees((item?.Item_Labour || 0) * (item?.Item_netweight || 0))}</td> */}
+                    <td>{formatRupees(item?.Item_hallmark || 0)}</td>
+                    <td>{formatRupees(item?.total_amount || 0)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -284,7 +220,7 @@ export const View = () => {
                 </tr>
                 <tr>
                   <td>SGST 1.5 %</td>
-                 
+
                   <th>Total SGST Amt :</th>
                   <td>{formatRupees(final_amount * 0.015)}</td>
                   <th>Total Amt Before Tax :</th>
